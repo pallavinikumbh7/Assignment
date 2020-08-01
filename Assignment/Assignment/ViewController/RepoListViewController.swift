@@ -16,15 +16,40 @@ class RepoListViewController: UIViewController {
     var sortCategory = ["Name (A-Z)", "Name (Z-A)", "Rank ↑", "Rank ↓"]
     var toolBar = UIToolbar()
     var picker  = UIPickerView()
+    var searchList = [Item]()
+    private var searchResultService: SearchResultService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialiseSearchResultService()
         let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(self.onClickOfSearchButton))
         self.navigationItem.rightBarButtonItem = searchButton
         createPickerWithToolBar()
+        getAllGitRepoList()
     }
     
     // MARK: Custom Methods
+    
+    private func getAllGitRepoList() {
+        searchResultService?.getRepoListWithSerchString(searchText: "a", handler: {[weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let searchData):
+                self.searchList = searchData.items ?? []
+                self.searchTable.reloadData()
+            case .failure(let error):
+                self.searchList = []
+                print(error)
+            }
+        })
+    }
+    
+    private func initialiseSearchResultService() {
+        if searchResultService == nil {
+            searchResultService = SearchResultService()
+        }
+    }
+    
     func createPickerWithToolBar() {
      picker = UIPickerView.init()
         picker.delegate = self
@@ -53,15 +78,16 @@ class RepoListViewController: UIViewController {
 }
 extension RepoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return searchList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SearchTableViewCell.self)) as? SearchTableViewCell else {
             return UITableViewCell()
         }
-        cell.nameLable.text = "ABC"
-        cell.scoreLabel.text = "pqr"
+        let searchObject = searchList[indexPath.row]
+        cell.nameLable.text = searchObject.login
+        cell.scoreLabel.text = String(format: "Score: %@", searchObject.score ?? "")
         return cell
     }
     

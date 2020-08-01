@@ -9,15 +9,19 @@
 import Foundation
 import Alamofire
 
-func searchForMatchesWithTitle(searchText: String, handler:@escaping ([SearchResponseBO], Error?) -> Void) {
-    let endUrl = String(format: "https://api.github.com/search/users?q=%@", searchText)
-   AF.request(endUrl)
-    .responseJSON { response in
-        do {
-            let searchResponseBO = try JSONDecoder().decode(SearchResponseBO.self, from: response)
-        } catch let error {
-            print(error)
+class SearchResultService: NSObject {
+    func getRepoListWithSerchString(searchText: String, handler:@escaping (Result<SearchResponseBO, Error>) -> Void) {
+        let endUrl = String(format: "https://api.github.com/search/users?q=%@", searchText)
+        AF.request(endUrl, method: .get)
+        .responseJSON { (response) in
+            switch response.result {
+            case .success(let data):
+                if let searchResponse = data as? SearchResponseBO {
+                    handler(.success(searchResponse))
+                }
+            case .failure(let error):
+                handler(.failure(error))
+            }
         }
-        handler([SearchResponseBO], <#Error?#>)
     }
 }
