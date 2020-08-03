@@ -13,13 +13,14 @@ class SearchResultService: NSObject {
     func getRepoListWithSerchString(searchText: String, handler:@escaping (Result<SearchResponseBO, Error>) -> Void) {
         let endUrl = String(format: "https://api.github.com/search/users?q=%@", searchText)
         AF.request(endUrl, method: .get)
-        .responseJSON { (response) in
-            switch response.result {
-            case .success(let data):
-                if let searchResponse = data as? SearchResponseBO {
-                    handler(.success(searchResponse))
+        .responseJSON { response in
+            do {
+                if let data = response.data {
+                  let superStructureBO = try JSONDecoder().decode(SearchResponseBO.self, from: data)
+                    handler(.success(superStructureBO))
                 }
-            case .failure(let error):
+            } catch let error {
+                print(error)
                 handler(.failure(error))
             }
         }

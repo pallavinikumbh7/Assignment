@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLable: UILabel!
@@ -18,11 +19,16 @@ class SearchTableViewCell: UITableViewCell {
         profileImage.layer.cornerRadius = profileImage.frame.size.height/2
         // Initialization code
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+extension SearchTableViewCell {
+    func configureData(repoData: Item) {
+        nameLable.text = repoData.login
+        scoreLabel.text = ("Score: \(repoData.score ?? 0)")
+        if let imageURL = URL(string: repoData.avatarUrl ?? "") {
+            profileImage.af.setImage(withURL: imageURL)
+        } else {
+            profileImage.image = #imageLiteral(resourceName: "user")
+        }
     }
-    
 }
