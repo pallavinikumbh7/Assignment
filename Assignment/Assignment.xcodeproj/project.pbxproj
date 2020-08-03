@@ -14,7 +14,6 @@
 		E2AE396624D3376E00E60775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE396524D3376E00E60775 /* SceneDelegate.swift */; };
 		E2AE396B24D3376E00E60775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AE396924D3376E00E60775 /* Main.storyboard */; };
 		E2AE396D24D3377500E60775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2AE396C24D3377500E60775 /* Assets.xcassets */; };
-		E2AE397024D3377500E60775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AE396E24D3377500E60775 /* LaunchScreen.storyboard */; };
 		E2AE397B24D3377500E60775 /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE397A24D3377500E60775 /* AssignmentTests.swift */; };
 		E2AE398624D3377500E60775 /* AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE398524D3377500E60775 /* AssignmentUITests.swift */; };
 		E2AE399924D3E3B700E60775 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE399724D3E3B700E60775 /* SearchTableViewCell.swift */; };
@@ -22,6 +21,7 @@
 		E2AE399C24D3E40A00E60775 /* SearchResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE399B24D3E40A00E60775 /* SearchResultService.swift */; };
 		E2AE39A224D56DD200E60775 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39A124D56DD200E60775 /* RepoListViewController.swift */; };
 		E2AE39A524D576F900E60775 /* SearchResponseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39A424D576F900E60775 /* SearchResponseBO.swift */; };
+		E2AE39AB24D6CA1A00E60775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39AA24D6CA1A00E60775 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 		E2AE396524D3376E00E60775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E2AE396A24D3376E00E60775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2AE396C24D3377500E60775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2AE396F24D3377500E60775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2AE397124D3377500E60775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2AE397624D3377500E60775 /* AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2AE397A24D3377500E60775 /* AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTests.swift; sourceTree = "<group>"; };
@@ -69,6 +68,7 @@
 		E2AE39A124D56DD200E60775 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
 		E2AE39A424D576F900E60775 /* SearchResponseBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseBO.swift; sourceTree = "<group>"; };
 		E2AE39A624D57A5600E60775 /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Pods/Alamofire/Source/Alamofire.swift; sourceTree = "<group>"; };
+		E2AE39AA24D6CA1A00E60775 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FC9BFFFD3F3C6D8C7D87633C /* Pods-AssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-AssignmentTests/Pods-AssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +136,7 @@
 		E2AE396224D3376E00E60775 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE39A824D6C9F300E60775 /* Utilities */,
 				E2AE396324D3376E00E60775 /* AppDelegate.swift */,
 				E2AE396524D3376E00E60775 /* SceneDelegate.swift */,
 				E2AE399624D3E35200E60775 /* View */,
@@ -143,7 +144,6 @@
 				E2AE399424D3E32C00E60775 /* ViewController */,
 				E2AE396924D3376E00E60775 /* Main.storyboard */,
 				E2AE396C24D3377500E60775 /* Assets.xcassets */,
-				E2AE396E24D3377500E60775 /* LaunchScreen.storyboard */,
 				E2AE397124D3377500E60775 /* Info.plist */,
 			);
 			path = Assignment;
@@ -191,6 +191,22 @@
 				E2AE399824D3E3B700E60775 /* SearchTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E2AE39A824D6C9F300E60775 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39A924D6C9FE00E60775 /* Constants */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E2AE39A924D6C9FE00E60775 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39AA24D6CA1A00E60775 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		F3FF0ED621822782A74AFBE4 /* Pods */ = {
@@ -315,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2AE397024D3377500E60775 /* LaunchScreen.storyboard in Resources */,
 				E2AE399A24D3E3B700E60775 /* SearchTableViewCell.xib in Resources */,
 				E2AE396D24D3377500E60775 /* Assets.xcassets in Resources */,
 				E2AE396B24D3376E00E60775 /* Main.storyboard in Resources */,
@@ -450,6 +465,7 @@
 				E2AE399924D3E3B700E60775 /* SearchTableViewCell.swift in Sources */,
 				E2AE39A224D56DD200E60775 /* RepoListViewController.swift in Sources */,
 				E2AE396424D3376E00E60775 /* AppDelegate.swift in Sources */,
+				E2AE39AB24D6CA1A00E60775 /* Constants.swift in Sources */,
 				E2AE396624D3376E00E60775 /* SceneDelegate.swift in Sources */,
 				E2AE39A524D576F900E60775 /* SearchResponseBO.swift in Sources */,
 			);
@@ -493,14 +509,6 @@
 				E2AE396A24D3376E00E60775 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E2AE396E24D3377500E60775 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2AE396F24D3377500E60775 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
