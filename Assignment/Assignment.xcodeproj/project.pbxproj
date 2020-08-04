@@ -17,11 +17,16 @@
 		E2AE397B24D3377500E60775 /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE397A24D3377500E60775 /* AssignmentTests.swift */; };
 		E2AE398624D3377500E60775 /* AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE398524D3377500E60775 /* AssignmentUITests.swift */; };
 		E2AE399924D3E3B700E60775 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE399724D3E3B700E60775 /* SearchTableViewCell.swift */; };
-		E2AE399A24D3E3B700E60775 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2AE399824D3E3B700E60775 /* SearchTableViewCell.xib */; };
-		E2AE399C24D3E40A00E60775 /* SearchResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE399B24D3E40A00E60775 /* SearchResultService.swift */; };
 		E2AE39A224D56DD200E60775 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39A124D56DD200E60775 /* RepoListViewController.swift */; };
-		E2AE39A524D576F900E60775 /* SearchResponseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39A424D576F900E60775 /* SearchResponseBO.swift */; };
 		E2AE39AB24D6CA1A00E60775 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39AA24D6CA1A00E60775 /* Constants.swift */; };
+		E2AE39C324D9CD8900E60775 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39C224D9CD8800E60775 /* UserDetailViewController.swift */; };
+		E2AE39C724D9CDB100E60775 /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39C624D9CDB100E60775 /* UserDetailTableViewCell.swift */; };
+		E2AE39D024D9CE4A00E60775 /* UserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39CE24D9CE4A00E60775 /* UserDetailService.swift */; };
+		E2AE39D124D9CE4A00E60775 /* SearchResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39CF24D9CE4A00E60775 /* SearchResultService.swift */; };
+		E2AE39D424D9CE5A00E60775 /* SearchResponseBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39D224D9CE5A00E60775 /* SearchResponseBO.swift */; };
+		E2AE39D524D9CE5A00E60775 /* UserDetailsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39D324D9CE5A00E60775 /* UserDetailsBO.swift */; };
+		E2AE39D824D9CE8D00E60775 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE39D724D9CE8D00E60775 /* Utility.swift */; };
+		E2AE39DE24D9CF7900E60775 /* StaticData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2AE39DD24D9CF7900E60775 /* StaticData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +68,16 @@
 		E2AE398524D3377500E60775 /* AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentUITests.swift; sourceTree = "<group>"; };
 		E2AE398724D3377500E60775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2AE399724D3E3B700E60775 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		E2AE399824D3E3B700E60775 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
-		E2AE399B24D3E40A00E60775 /* SearchResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultService.swift; sourceTree = "<group>"; };
 		E2AE39A124D56DD200E60775 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
-		E2AE39A424D576F900E60775 /* SearchResponseBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseBO.swift; sourceTree = "<group>"; };
-		E2AE39A624D57A5600E60775 /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Pods/Alamofire/Source/Alamofire.swift; sourceTree = "<group>"; };
 		E2AE39AA24D6CA1A00E60775 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E2AE39C224D9CD8800E60775 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		E2AE39C624D9CDB100E60775 /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E2AE39CE24D9CE4A00E60775 /* UserDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailService.swift; sourceTree = "<group>"; };
+		E2AE39CF24D9CE4A00E60775 /* SearchResultService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultService.swift; sourceTree = "<group>"; };
+		E2AE39D224D9CE5A00E60775 /* SearchResponseBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponseBO.swift; sourceTree = "<group>"; };
+		E2AE39D324D9CE5A00E60775 /* UserDetailsBO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsBO.swift; sourceTree = "<group>"; };
+		E2AE39D724D9CE8D00E60775 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		E2AE39DD24D9CF7900E60775 /* StaticData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StaticData.plist; sourceTree = "<group>"; };
 		FC9BFFFD3F3C6D8C7D87633C /* Pods-AssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-AssignmentTests/Pods-AssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +122,6 @@
 		E2AE395724D3376E00E60775 = {
 			isa = PBXGroup;
 			children = (
-				E2AE39A624D57A5600E60775 /* Alamofire.swift */,
 				E2AE396224D3376E00E60775 /* Assignment */,
 				E2AE397924D3377500E60775 /* AssignmentTests */,
 				E2AE398424D3377500E60775 /* AssignmentUITests */,
@@ -136,6 +144,7 @@
 		E2AE396224D3376E00E60775 /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE39DB24D9CF1400E60775 /* Resources */,
 				E2AE39A824D6C9F300E60775 /* Utilities */,
 				E2AE396324D3376E00E60775 /* AppDelegate.swift */,
 				E2AE396524D3376E00E60775 /* SceneDelegate.swift */,
@@ -170,6 +179,7 @@
 		E2AE399424D3E32C00E60775 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE39C224D9CD8800E60775 /* UserDetailViewController.swift */,
 				E2AE39A124D56DD200E60775 /* RepoListViewController.swift */,
 			);
 			path = ViewController;
@@ -178,8 +188,8 @@
 		E2AE399524D3E34900E60775 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2AE399B24D3E40A00E60775 /* SearchResultService.swift */,
-				E2AE39A424D576F900E60775 /* SearchResponseBO.swift */,
+				E2AE39C924D9CDE000E60775 /* Service */,
+				E2AE39C824D9CDD900E60775 /* BusinessObject */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,8 +197,8 @@
 		E2AE399624D3E35200E60775 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE39C624D9CDB100E60775 /* UserDetailTableViewCell.swift */,
 				E2AE399724D3E3B700E60775 /* SearchTableViewCell.swift */,
-				E2AE399824D3E3B700E60775 /* SearchTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +206,7 @@
 		E2AE39A824D6C9F300E60775 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE39D624D9CE6D00E60775 /* Utility */,
 				E2AE39A924D6C9FE00E60775 /* Constants */,
 			);
 			path = Utilities;
@@ -207,6 +218,48 @@
 				E2AE39AA24D6CA1A00E60775 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		E2AE39C824D9CDD900E60775 /* BusinessObject */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39D224D9CE5A00E60775 /* SearchResponseBO.swift */,
+				E2AE39D324D9CE5A00E60775 /* UserDetailsBO.swift */,
+			);
+			path = BusinessObject;
+			sourceTree = "<group>";
+		};
+		E2AE39C924D9CDE000E60775 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39CF24D9CE4A00E60775 /* SearchResultService.swift */,
+				E2AE39CE24D9CE4A00E60775 /* UserDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E2AE39D624D9CE6D00E60775 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39D724D9CE8D00E60775 /* Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E2AE39DB24D9CF1400E60775 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39DC24D9CF4000E60775 /* Plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2AE39DC24D9CF4000E60775 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE39DD24D9CF7900E60775 /* StaticData.plist */,
+			);
+			path = Plist;
 			sourceTree = "<group>";
 		};
 		F3FF0ED621822782A74AFBE4 /* Pods */ = {
@@ -331,8 +384,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2AE399A24D3E3B700E60775 /* SearchTableViewCell.xib in Resources */,
 				E2AE396D24D3377500E60775 /* Assets.xcassets in Resources */,
+				E2AE39DE24D9CF7900E60775 /* StaticData.plist in Resources */,
 				E2AE396B24D3376E00E60775 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,13 +514,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2AE399C24D3E40A00E60775 /* SearchResultService.swift in Sources */,
 				E2AE399924D3E3B700E60775 /* SearchTableViewCell.swift in Sources */,
 				E2AE39A224D56DD200E60775 /* RepoListViewController.swift in Sources */,
+				E2AE39C324D9CD8900E60775 /* UserDetailViewController.swift in Sources */,
+				E2AE39D524D9CE5A00E60775 /* UserDetailsBO.swift in Sources */,
+				E2AE39C724D9CDB100E60775 /* UserDetailTableViewCell.swift in Sources */,
 				E2AE396424D3376E00E60775 /* AppDelegate.swift in Sources */,
+				E2AE39D024D9CE4A00E60775 /* UserDetailService.swift in Sources */,
 				E2AE39AB24D6CA1A00E60775 /* Constants.swift in Sources */,
+				E2AE39D824D9CE8D00E60775 /* Utility.swift in Sources */,
+				E2AE39D424D9CE5A00E60775 /* SearchResponseBO.swift in Sources */,
 				E2AE396624D3376E00E60775 /* SceneDelegate.swift in Sources */,
-				E2AE39A524D576F900E60775 /* SearchResponseBO.swift in Sources */,
+				E2AE39D124D9CE4A00E60775 /* SearchResultService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
