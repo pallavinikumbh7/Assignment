@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   StaticData.plist
-   Assignment
-
-   Created by Pallavi on 04/08/20.
-   Copyright (c) 2020 Pallavi. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>UserDetails</key>
+	<array>
+		<dict>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Repository Name:</string>
+			<key>image</key>
+			<string>attach</string>
+		</dict>
+		<dict>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Repository Description:</string>
+			<key>image</key>
+			<string>folder</string>
+		</dict>
+		<dict>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Repository URL:</string>
+			<key>image</key>
+			<string>clip</string>
+		</dict>
+		<dict>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Language</string>
+			<key>image</key>
+			<string>brackets</string>
+		</dict>
+		<dict>
+			<key>value</key>
+			<string></string>
+			<key>image</key>
+			<string>calendar</string>
+			<key>title</key>
+			<string>Created On:</string>
+		</dict>
+	</array>
+</dict>
 </plist>
