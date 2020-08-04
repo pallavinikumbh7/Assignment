@@ -107,6 +107,12 @@ class RepoListViewController: UIViewController {
         self.view.addSubview(picker)
         self.view.addSubview(toolBar)
     }
+    @IBAction func OnClickOfViewDetailsButton(_ sender: UIButton) {
+        let userDetailViewController = Storyboards.main.instance.instantiateViewController(withIdentifier: Constants.StoryboardIDs.userDetailViewController) as! UserDetailViewController
+        let searchObject = searchActive ? filterList[sender.tag] : searchList[sender.tag]
+        userDetailViewController.selectedUser = searchObject.login ?? ""
+        self.navigationController?.pushViewController(userDetailViewController, animated: true)
+    }
     
     @objc func onDoneButtonTapped() {
         toolBar.removeFromSuperview()
@@ -134,10 +140,10 @@ extension RepoListViewController: UITableViewDataSource {
         }
         
         let searchObject = searchActive ? filterList[indexPath.row] : searchList[indexPath.row]
+        cell.viewDetailButton.tag = indexPath.row
         cell.configureData(repoData: searchObject)
         return cell
     }
-    
 }
 
 extension RepoListViewController: UIPickerViewDelegate, UIPickerViewDataSource {

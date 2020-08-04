@@ -11,7 +11,7 @@ import Alamofire
 
 class SearchResultService: NSObject {
     func getRepoListWithSerchString(searchText: String, handler:@escaping (Result<SearchResponseBO, Error>) -> Void) {
-        let endUrl = String(format: "https://api.github.com/search/users?q=%@", searchText)
+        let endUrl = String(format: Constants.BaseURL + Constants.Service.searchUser, searchText)
         AF.request(endUrl, method: .get)
         .responseJSON { response in
             do {
