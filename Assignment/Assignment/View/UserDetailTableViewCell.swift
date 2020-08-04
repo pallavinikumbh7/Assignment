@@ -20,7 +20,9 @@ class UserDetailTableViewCell: UITableViewCell {
 }
 
 extension UserDetailTableViewCell {
-    func configureCellWithData(icon: UIImage) {
-        iconImage.image = icon
+    func configureCellWithData(data: [String: Any]) {
+        iconImage.image = UIImage(named:( data["image"] as? String ?? ""))
+        titleLabel.text = data["title"] as? String ?? ""
+        valueLabel.text = data["value"] as? String ?? "-"
     }
 }

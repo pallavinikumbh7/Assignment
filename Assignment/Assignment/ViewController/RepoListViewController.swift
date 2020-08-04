@@ -34,7 +34,9 @@ class RepoListViewController: UIViewController {
     // MARK: Custom Methods
     
     private func getAllGitRepoList() {
+        Utility.sharedInstance().showActivityIndicator(view: self.view)
         searchResultService?.getRepoListWithSerchString(searchText: "Va", handler: {[weak self] result in
+            Utility.sharedInstance().hideActivityIndicator()
             guard let self = self else {return}
             switch result {
             case .success(let searchData):

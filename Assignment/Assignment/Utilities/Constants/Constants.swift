@@ -16,6 +16,14 @@ enum SortType: String {
     case descendingRank = "Rank ↓"
 }
 
+enum Cell: Int {
+    case name = 0
+    case description
+    case url
+    case language
+    case createdOn
+}
+
 enum Storyboards: String {
     case main = "Main"
     

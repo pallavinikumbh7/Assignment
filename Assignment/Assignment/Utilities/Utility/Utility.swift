@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class Utility: NSObject {
     
+    var activityIndicator = UIActivityIndicatorView()
     private static var utility: Utility = {
            let utility = Utility()
            return utility
@@ -30,5 +32,17 @@ class Utility: NSObject {
             }
         }
         return data as Any
+    }
+    
+    func showActivityIndicator(view: UIView) {
+        activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        activityIndicator.center = view.center
+        activityIndicator.color = UIColor.yellow
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 }
