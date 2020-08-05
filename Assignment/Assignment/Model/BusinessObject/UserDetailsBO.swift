@@ -295,7 +295,6 @@ struct License: Codable {
     let spdxId: String?
     let url: String?
 
-
     enum CodingKeys: String, CodingKey {
         case key, name, url
         case nodeId = "node_id"

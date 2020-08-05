@@ -42,15 +42,15 @@ class Constants: NSObject {
     static let kStaticDataPlist = "StaticData"
     
     struct StoryboardIDs {
-       static let userDetailViewController = "UserDetailViewController"
+        static let userDetailViewController = "UserDetailViewController"
     }
     
     struct Service {
-       static let searchUser = "/search/users?q=%@"
-       static let userDetail = "/users/%@/repos"
+        static let searchUser = "/search/users?q=%@"
+        static let userDetail = "/users/%@/repos"
     }
     
     struct StaticData {
-      static let userDetail = "UserDetails"
+        static let userDetail = "UserDetails"
     }
 }

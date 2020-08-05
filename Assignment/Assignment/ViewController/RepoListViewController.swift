@@ -17,35 +17,35 @@ class RepoListViewController: UIViewController {
     var toolBar = UIToolbar()
     var picker  = UIPickerView()
     var searchList = [Item]()
-    var filterList = [Item]()
-    var searchActive: Bool = false
     private var searchResultService: SearchResultService?
+    var searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeView()
+    }
+    
+    // MARK: Custom Methods
+    
+    private func initializeView() {
         initialiseSearchResultService()
         let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(self.onClickOfSearchButton))
         self.navigationItem.rightBarButtonItem = searchButton
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         createPickerWithToolBar()
-        getAllGitRepoList()
+        getAllGitRepoList(searchText: "Varun", isFromSearch: false)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.definesPresentationContext = true
-    }
-    
-    // MARK: Custom Methods
-    
-    private func getAllGitRepoList() {
+    private func getAllGitRepoList(searchText: String, isFromSearch: Bool) {
         Utility.sharedInstance().showActivityIndicator(view: self.view)
-        searchResultService?.getRepoListWithSerchString(searchText: "Va", handler: {[weak self] result in
+        searchResultService?.getRepoListWithSerchString(searchText: searchText, handler: {[weak self] result in
             Utility.sharedInstance().hideActivityIndicator()
             guard let self = self else {return}
             switch result {
             case .success(let searchData):
                 self.searchList = searchData.items ?? []
-                self.resultLable.attributedText = self.setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
+                self.resultLable.attributedText =  isFromSearch ? self.setAttributedText(completeText: "Search results for '\(searchText)'", boldText: "\(searchText)") : self.setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
+                self.title = isFromSearch ? searchText : "Home"
                 self.searchTable.reloadData()
             case .failure(let error):
                 self.searchList = []
@@ -60,36 +60,19 @@ class RepoListViewController: UIViewController {
         }
     }
     
-    func sortRepoDataByCategory(category: String) {
-        
+    private func sortRepoDataByCategory(category: String) {
         switch category {
         case SortType.ascending.rawValue:
-            if searchActive {
               searchList = searchList.sorted(by: { ($0.login ?? "") < ($1.login ?? "") })
-            } else {
-              filterList = filterList.sorted(by: { ($0.login ?? "") < ($1.login ?? "") })
-            }
             
         case SortType.descending.rawValue:
-            if searchActive {
               searchList = searchList.sorted(by: { ($0.login ?? "") > ($1.login ?? "") })
-            } else {
-              filterList = filterList.sorted(by: { ($0.login ?? "") > ($1.login ?? "") })
-            }
             
         case SortType.ascendingRank.rawValue:
-            if searchActive {
               searchList = searchList.sorted(by: { ($0.score ?? 0) < ($1.score ?? 0) })
-            } else {
-              filterList = filterList.sorted(by: { ($0.score ?? 0) < ($1.score ?? 0) })
-            }
             
         case SortType.descendingRank.rawValue:
-            if searchActive {
               searchList = searchList.sorted(by: { ($0.score ?? 0) > ($1.score ?? 0) })
-            } else {
-              filterList = filterList.sorted(by: { ($0.score ?? 0) > ($1.score ?? 0) })
-            }
             
         default:
             break
@@ -97,7 +80,7 @@ class RepoListViewController: UIViewController {
         searchTable.reloadData()
     }
     
-    func createPickerWithToolBar() {
+    private func createPickerWithToolBar() {
      picker = UIPickerView.init()
         picker.delegate = self
         picker.backgroundColor = UIColor.white
@@ -108,18 +91,20 @@ class RepoListViewController: UIViewController {
         toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
     }
     
-    func setAttributedText(completeText: String, boldText: String) -> NSAttributedString {
+    private func setAttributedText(completeText: String, boldText: String) -> NSAttributedString {
         return Utility.sharedInstance().addBoldText(fullString: completeText, boldString: boldText, font: regularFont ?? UIFont(), boldFont: boldFont ?? UIFont())
     }
     
-    // MARK: BboldStringhods
+    // MARK: Button Action Methods
+    
     @IBAction func onClickOfSortButton(_ sender: UIButton) {
         self.view.addSubview(picker)
         self.view.addSubview(toolBar)
     }
+    
     @IBAction func OnClickOfViewDetailsButton(_ sender: UIButton) {
         let userDetailViewController = Storyboards.main.instance.instantiateViewController(withIdentifier: Constants.StoryboardIDs.userDetailViewController) as! UserDetailViewController
-        let searchObject = searchActive ? filterList[sender.tag] : searchList[sender.tag]
+        let searchObject = searchList[sender.tag]
         userDetailViewController.selectedUser = searchObject.login ?? ""
         self.navigationController?.pushViewController(userDetailViewController, animated: true)
     }
@@ -130,7 +115,6 @@ class RepoListViewController: UIViewController {
     }
    
     @objc func onClickOfSearchButton(sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.keyboardType = UIKeyboardType.default
         searchController.searchBar.delegate = self
@@ -141,7 +125,7 @@ class RepoListViewController: UIViewController {
 
 extension RepoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchActive ? filterList.count : searchList.count
+        return searchList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,7 +133,7 @@ extension RepoListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let searchObject = searchActive ? filterList[indexPath.row] : searchList[indexPath.row]
+        let searchObject = searchList[indexPath.row]
         cell.viewDetailButton.tag = indexPath.row
         cell.configureData(repoData: searchObject)
         return cell
@@ -160,12 +144,15 @@ extension RepoListViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return sortCategory.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return sortCategory[row]
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         sortRepoDataByCategory(category: sortCategory[row])
         sortByLable.text = "Sort by \(sortCategory[row])"
@@ -173,30 +160,13 @@ extension RepoListViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 extension RepoListViewController: UISearchBarDelegate {
-   func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
         self.resultLable.attributedText = setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
         searchTable.reloadData()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchActive = true
-        filterList = searchList.filter({ (repo) -> Bool in
-            let value = repo.login ?? ""
-            let searchString: NSString = value as NSString
-            let range = searchString.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
-        })
-        
-        self.resultLable.attributedText = setAttributedText(completeText: "Search results for '\(searchText)'", boldText: "\(searchText)")
-        if searchText == "" {
-           self.resultLable.attributedText = setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
-           searchActive = false
-        }
-        self.searchTable.reloadData()
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar) {
+        searchController.dismiss(animated: true, completion: nil)
+        self.getAllGitRepoList(searchText: searchBar.text ?? "", isFromSearch: true)
     }
 }

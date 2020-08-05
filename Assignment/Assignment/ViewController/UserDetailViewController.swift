@@ -18,8 +18,15 @@ class UserDetailViewController: UIViewController {
     private var userDetailService: UserDetailService?
     var selectedUser = String()
     var userDetailsArray = [[String: Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialiseView()
+    }
+    
+    // MARK: Custom Methods
+    
+    private func initialiseView() {
         initialiseUserDetailService()
         self.title = "User Detail"
         self.navigationController?.navigationBar.tintColor = .white
@@ -41,19 +48,19 @@ class UserDetailViewController: UIViewController {
     
     private func getUserDetails(userName: String) {
         Utility.sharedInstance().showActivityIndicator(view: self.view)
-            userDetailService?.getUserDetailWith(userName: userName, handler: {[weak self] result in
-                Utility.sharedInstance().hideActivityIndicator()
-                guard let self = self else {return}
-                switch result {
-                case .success(let userData):
-                  self.setUpData(userData: userData)
-                  self.userDetailsTable.reloadData()
-                case .failure(let error):
-                    print(error)
-                    self.userDetailsArray = []
-                }
-            })
-        }
+        userDetailService?.getUserDetailWith(userName: userName, handler: {[weak self] result in
+            Utility.sharedInstance().hideActivityIndicator()
+            guard let self = self else {return}
+            switch result {
+            case .success(let userData):
+                self.setUpData(userData: userData)
+                self.userDetailsTable.reloadData()
+            case .failure(let error):
+                print(error)
+                self.userDetailsArray = []
+            }
+        })
+    }
     
     func setUpData(userData: ([UserDetailsBO])) {
         if !userData.isEmpty {
@@ -75,7 +82,7 @@ class UserDetailViewController: UIViewController {
                     details["value"] = userData.first?.language
                     self.userDetailsArray[index] = details
                 case Cell.createdOn.rawValue:
-                    details["value"] = userData.first?.createdAt
+                    details["value"] = Utility.sharedInstance().convertUTCToDateString(dateString: userData.first?.createdAt ?? "")
                     self.userDetailsArray[index] = details
                 default:
                     break

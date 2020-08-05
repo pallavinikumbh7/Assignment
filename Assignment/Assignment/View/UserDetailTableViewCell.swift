@@ -24,5 +24,8 @@ extension UserDetailTableViewCell {
         iconImage.image = UIImage(named:( data["image"] as? String ?? ""))
         titleLabel.text = data["title"] as? String ?? ""
         valueLabel.text = data["value"] as? String ?? "-"
+        if data["title"] as? String ?? "" == "Repository URL:" {
+            valueLabel.textColor = UIColor.blue
+        }
     }
 }

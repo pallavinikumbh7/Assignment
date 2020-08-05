@@ -63,8 +63,8 @@
                                     <constraint firstAttribute="height" constant="50" id="zbv-ac-f7n"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing 240 results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mw-i8-6Uk">
-                                <rect key="frame" x="0.0" y="138" width="414" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mw-i8-6Uk">
+                                <rect key="frame" x="20" y="138" width="394" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="K7e-UP-pfy"/>
                                 </constraints>
@@ -92,10 +92,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVk-5W-VFZ">
-                                                    <rect key="frame" x="115" y="25" width="107" height="50"/>
+                                                    <rect key="frame" x="115" y="25" width="0.0" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 81" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-Pn-gj1">
-                                                            <rect key="frame" x="0.0" y="25" width="107" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-Pn-gj1">
+                                                            <rect key="frame" x="0.0" y="25" width="0.0" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="nAi-B3-RzD"/>
                                                             </constraints>
@@ -103,8 +103,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun Srinivas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uk4-IW-NXe">
-                                                            <rect key="frame" x="0.0" y="0.0" width="107" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uk4-IW-NXe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="O8i-kr-Y52"/>
                                                             </constraints>
@@ -166,7 +166,7 @@
                             <constraint firstItem="q9c-1w-jsR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5TJ-EQ-u9m"/>
                             <constraint firstItem="anI-FW-h2S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="A6x-l4-8o3"/>
                             <constraint firstItem="anI-FW-h2S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B45-ig-lGm"/>
-                            <constraint firstItem="0Mw-i8-6Uk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J6Q-18-VrI"/>
+                            <constraint firstItem="0Mw-i8-6Uk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="J6Q-18-VrI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q9c-1w-jsR" secondAttribute="bottom" id="SoQ-5Q-em4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q9c-1w-jsR" secondAttribute="trailing" id="VBv-Bx-qlA"/>
                             <constraint firstItem="0Mw-i8-6Uk" firstAttribute="top" secondItem="anI-FW-h2S" secondAttribute="bottom" id="aGn-JH-bST"/>
@@ -214,8 +214,8 @@
                                                 <constraint firstAttribute="height" constant="100" id="FDG-xe-6iD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Varun srinivasa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brJ-GT-u2Q">
-                                            <rect key="frame" x="140" y="25" width="117.5" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brJ-GT-u2Q">
+                                            <rect key="frame" x="140" y="25" width="0.0" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Iis-BV-0gT"/>
                                             </constraints>
