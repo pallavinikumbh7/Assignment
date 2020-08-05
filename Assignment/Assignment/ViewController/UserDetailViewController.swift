@@ -13,6 +13,7 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var viewProfileButton: UIButton!
     @IBOutlet weak var userDetailsTable: UITableView!
+    @IBOutlet weak var emptyMessageLabel: UILabel!
     
     private var userDetailService: UserDetailService?
     var selectedUser = String()
@@ -39,7 +40,9 @@ class UserDetailViewController: UIViewController {
     }
     
     private func getUserDetails(userName: String) {
+        Utility.sharedInstance().showActivityIndicator(view: self.view)
             userDetailService?.getUserDetailWith(userName: userName, handler: {[weak self] result in
+                Utility.sharedInstance().hideActivityIndicator()
                 guard let self = self else {return}
                 switch result {
                 case .success(let userData):
@@ -54,6 +57,8 @@ class UserDetailViewController: UIViewController {
     
     func setUpData(userData: ([UserDetailsBO])) {
         if !userData.isEmpty {
+            userDetailsTable.isHidden = false
+            emptyMessageLabel.isHidden = true
             for (index, data) in self.userDetailsArray.enumerated() {
                 var details = data
                 switch index {
@@ -82,6 +87,9 @@ class UserDetailViewController: UIViewController {
             } else {
                 self.profileImage.image = #imageLiteral(resourceName: "user")
             }
+        } else {
+            userDetailsTable.isHidden = true
+            emptyMessageLabel.text = "User Details not found"
         }
     }
 }
@@ -100,8 +108,8 @@ extension UserDetailViewController: UITableViewDataSource {
     }
 }
 
-//extension UserDetailViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//}
+extension UserDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}

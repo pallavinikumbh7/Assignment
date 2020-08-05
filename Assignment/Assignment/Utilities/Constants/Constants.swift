@@ -32,6 +32,9 @@ enum Storyboards: String {
     }
 }
 
+let regularFont = UIFont(name: "Lato-Regular", size: 17)
+let boldFont = UIFont(name: "Lato-Bold", size: 17)
+
 class Constants: NSObject {
     
     static let BaseURL = "https://api.github.com"

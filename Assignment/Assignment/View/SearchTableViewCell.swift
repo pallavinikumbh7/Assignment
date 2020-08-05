@@ -25,7 +25,7 @@ class SearchTableViewCell: UITableViewCell {
 extension SearchTableViewCell {
     func configureData(repoData: Item) {
         nameLable.text = repoData.login
-        scoreLabel.text = ("Score: \(repoData.score ?? 0)")
+        scoreLabel.attributedText = Utility.sharedInstance().addBoldText(fullString: ("Score: \(repoData.score ?? 0)"), boldString: "\(repoData.score ?? 0)", font: regularFont ?? UIFont(), boldFont: boldFont ?? UIFont())
         if let imageURL = URL(string: repoData.avatarUrl ?? "") {
             profileImage.af.setImage(withURL: imageURL)
         } else {

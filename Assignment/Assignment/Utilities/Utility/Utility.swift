@@ -12,6 +12,8 @@ import UIKit
 class Utility: NSObject {
     
     var activityIndicator = UIActivityIndicatorView()
+    var bgView = UIView()
+    
     private static var utility: Utility = {
            let utility = Utility()
            return utility
@@ -37,12 +39,23 @@ class Utility: NSObject {
     func showActivityIndicator(view: UIView) {
         activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         activityIndicator.center = view.center
-        activityIndicator.color = UIColor.yellow
-        view.addSubview(activityIndicator)
+        bgView = UIView(frame: UIScreen.main.bounds)
+        bgView.backgroundColor = UIColor(white: 0.5, alpha: 0.6)
+        view.addSubview(bgView)
+        bgView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
     }
     
     func hideActivityIndicator() {
+        bgView.removeFromSuperview()
         activityIndicator.stopAnimating()
+    }
+    
+    func addBoldText(fullString: String, boldString: String, font: UIFont, boldFont: UIFont) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: fullString, attributes: [NSAttributedString.Key.font: font])
+        let boldFontAttribute = [NSAttributedString.Key.font: boldFont]
+        let strRange: NSString = fullString as NSString
+        attributedString.addAttributes(boldFontAttribute, range: strRange.range(of: boldString))
+        return attributedString
     }
 }

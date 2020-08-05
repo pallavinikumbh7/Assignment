@@ -31,6 +31,10 @@ class RepoListViewController: UIViewController {
         getAllGitRepoList()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.definesPresentationContext = true
+    }
+    
     // MARK: Custom Methods
     
     private func getAllGitRepoList() {
@@ -41,7 +45,7 @@ class RepoListViewController: UIViewController {
             switch result {
             case .success(let searchData):
                 self.searchList = searchData.items ?? []
-                self.resultLable.text = "Showing \(self.searchList.count) results"
+                self.resultLable.attributedText = self.setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
                 self.searchTable.reloadData()
             case .failure(let error):
                 self.searchList = []
@@ -104,7 +108,11 @@ class RepoListViewController: UIViewController {
         toolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
     }
     
-    // MARK: Button Action Methods
+    func setAttributedText(completeText: String, boldText: String) -> NSAttributedString {
+        return Utility.sharedInstance().addBoldText(fullString: completeText, boldString: boldText, font: regularFont ?? UIFont(), boldFont: boldFont ?? UIFont())
+    }
+    
+    // MARK: BboldStringhods
     @IBAction func onClickOfSortButton(_ sender: UIButton) {
         self.view.addSubview(picker)
         self.view.addSubview(toolBar)
@@ -171,7 +179,7 @@ extension RepoListViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        self.resultLable.text = "Showing \(self.searchList.count) results"
+        self.resultLable.attributedText = setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
         searchTable.reloadData()
     }
     
@@ -183,9 +191,10 @@ extension RepoListViewController: UISearchBarDelegate {
             let range = searchString.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return range.location != NSNotFound
         })
-        self.resultLable.text = "Showing \(self.filterList.count) results"
+        
+        self.resultLable.attributedText = setAttributedText(completeText: "Search results for '\(searchText)'", boldText: "\(searchText)")
         if searchText == "" {
-           self.resultLable.text = "Showing \(self.searchList.count) results"
+           self.resultLable.attributedText = setAttributedText(completeText: "Showing \(self.searchList.count) results", boldText: "\(self.searchList.count)")
            searchActive = false
         }
         self.searchTable.reloadData()
